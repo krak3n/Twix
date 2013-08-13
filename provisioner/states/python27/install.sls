@@ -7,7 +7,12 @@
 .python2.7:
   pkg:
     - installed
+    - require:
+      - pkgrepo: .dependencies::versions_ppa
 
 .python2.7-dev:
   pkg:
     - installed
+    - require:
+      - pkgrepo: .dependencies::versions_ppa
+
