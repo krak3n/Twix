@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+script:
+  - make test
+branches:
+  only:
+    - master
+    - develop
+env:
+  - TRAVIS_CI=true
+after_success:
+  - coveralls
