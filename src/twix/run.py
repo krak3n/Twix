@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 """
-.. module:: twix.twix
-   :synopsis: Base Twix class
+.. module:: twix.run
+   :synopsis: Run Twix
 """
 
 from six import print_
