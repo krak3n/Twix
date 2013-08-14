@@ -11,7 +11,11 @@ from twix import get_version
 
 
 def main():
-    interface = dedent("""
+    """ Main entry point into the application. Uses ``docopt`` to spawn the
+    initial command line interface to the user.
+    """
+
+    interface = """
     Twix {version}
 
     Twix is a Tmux session manager in the same vein as Tmuxinator and friends.
@@ -35,7 +39,7 @@ def main():
     Example:
         twix create foo
         twix foo
-    """)
+    """
 
-    docopt(interface.format(version=get_version()),
-           version='Twix {0}'.format(get_version()))
+    interface = dedent(interface.format(version=get_version()))
+    args = docopt(interface, version='Twix {0}'.format(get_version()))
