@@ -8,4 +8,6 @@
 
 class New(object):
 
-    pass
+    def __init__(self, name, extends=None):
+
+        pass

@@ -8,4 +8,6 @@
 
 class Show(object):
 
-    pass
+    def __init__(self, name):
+
+        pass

@@ -8,4 +8,6 @@
 
 class Wipe(object):
 
-    pass
+    def __init__(self, name=None):
+
+        pass
