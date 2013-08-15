@@ -78,7 +78,6 @@ setup(
     long_description=read('README.rst'),
     package_dir={'': 'src'},
     packages=find_packages('src'),
-    scripts=['src/twix/bin/twix'],
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
@@ -86,6 +85,11 @@ setup(
     extras_require={
         'test': test_requires,
         'develop': dev_requires,
+    },
+    entry_points={
+        'console_scripts': [
+            'twix = twix.main:run',
+        ]
     },
     classifiers=[
         'Environment :: Console',
