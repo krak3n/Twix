@@ -88,7 +88,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'twix = twix.cmd:main',
+            'twix = twix.main:run',
         ]
     },
     classifiers=[
