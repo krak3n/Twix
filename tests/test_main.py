@@ -69,7 +69,7 @@ class MainTests(unittest.TestCase):
         mock_new.assert_called_with('foo', extends='bar')
 
     @mock.patch('twix.main.Copy')
-    def test_copy_called(self, mock_new):
+    def test_copy_called(self, mock_copy):
         """ Ensure twix.copy.Copy is called when copy command
         is supplied to docopt.
         """
@@ -83,4 +83,4 @@ class MainTests(unittest.TestCase):
         self.docopt.return_value = args
         run()
 
-        mock_new.assert_called_with('foo', 'bar')
+        mock_copy.assert_called_with('foo', 'bar')
