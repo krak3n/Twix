@@ -131,3 +131,18 @@ class MainTests(unittest.TestCase):
         run()
 
         mock_show.assert_called_with('foo')
+
+    @mock.patch('twix.main.List')
+    def test_list_called(self, mock_list):
+        """ Ensure twix.list.List is called when show command
+        is supplied to docopt.
+        """
+
+        args = {
+            'list': True,
+        }
+
+        self.docopt.return_value = args
+        run()
+
+        mock_list.assert_called()
