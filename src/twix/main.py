@@ -5,6 +5,8 @@
    :synopsis: Twix Command Line Interface
 """
 
+import six
+
 from docopt import docopt
 from textwrap import dedent
 from twix import get_version
@@ -51,7 +53,7 @@ def run():
     args = docopt(interface, version='Twix {0}'.format(get_version()))
 
     cmds = ['start', 'new', 'copy', 'wipe', 'show', 'list']
-    cmd = next((k for k, v in args.iteritems() if k in cmds and v), None)
+    cmd = next((k for k, v in six.iteritems(args) if k in cmds and v), None)
 
     func = globals().get(cmd)
     func(args)
