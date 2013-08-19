@@ -1,0 +1,40 @@
+#
+# Default Twix Configuration Template
+#
+
+# Extends another Twix configuration
+extends: {{name}}
+
+# Session Settings
+name: {{name}}
+root: {{path}}
+
+# Commands to run globally before any windows are created
+before:
+  - 'git up'
+
+# Python workon support
+virtualenv: {{virtualenv}}
+
+# Tmux Windows List
+windows:
+  # Editor w/ Django Server Pane
+  - name: 'Editor'
+    # Override the default root set above
+    root: {{path}}
+    # Commands to run before window is created
+    before:
+      - vim +BundleInstall +qall
+    # Commands to run after the window has been created, not needed if your using panes
+    after:
+      - vim
+    # Pane Layout
+    layout: 'even-vertical'
+    # Window panes
+    panes:
+      - vim
+      - 'django-admin.py runserver 0.0.0.0:9000'
+  # Tests Window
+  - name: 'Tests'
+    after:
+      - 'python setup.py test'
