@@ -134,7 +134,7 @@ class MainTests(unittest.TestCase):
 
     @mock.patch('twix.main.List')
     def test_list_called(self, mock_list):
-        """ Ensure twix.list.List is called when show command
+        """ Ensure twix.list.List is called when list command
         is supplied to docopt.
         """
 
