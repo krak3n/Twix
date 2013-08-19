@@ -20,7 +20,7 @@ class MainTests(unittest.TestCase):
 
     @mock.patch('twix.main.Start')
     def test_start_called(self, mock_start):
-        """ Ensure twix.main.start is called when start command
+        """ Ensure twix.start.Start is called when start command
         is supplied to docopt.
         """
 
@@ -33,3 +33,37 @@ class MainTests(unittest.TestCase):
         run()
 
         mock_start.assert_called_with('foo')
+
+    @mock.patch('twix.main.New')
+    def test_new_called(self, mock_new):
+        """ Ensure twix.new.New is called when start command
+        is supplied to docopt.
+        """
+
+        args = {
+            'new': True,
+            '<name>': 'foo'
+        }
+
+        self.docopt.return_value = args
+        run()
+
+        mock_new.assert_called_with('foo')
+
+    @mock.patch('twix.main.New')
+    def test_new_called_with_extends(self, mock_new):
+        """ Ensure twix.new.New is called when start command
+        is supplied to docopt with extends arg.
+        """
+
+        args = {
+            'new': True,
+            '<name>': 'foo',
+            '--extends': True,
+            '<existing>': 'bar'
+        }
+
+        self.docopt.return_value = args
+        run()
+
+        mock_new.assert_called_with('foo', extends='bar')
