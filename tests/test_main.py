@@ -84,3 +84,34 @@ class MainTests(unittest.TestCase):
         run()
 
         mock_copy.assert_called_with('foo', 'bar')
+
+    @mock.patch('twix.main.Wipe')
+    def test_wipe_called(self, mock_wipe):
+        """ Ensure twix.wipe.Wope is called when wipe command
+        is supplied to docopt.
+        """
+
+        args = {
+            'wipe': True
+        }
+
+        self.docopt.return_value = args
+        run()
+
+        mock_wipe.assert_called()
+
+    @mock.patch('twix.main.Wipe')
+    def test_wipe_called_with_name(self, mock_wipe):
+        """ Ensure twix.wipe.Wope is called when wipe command
+        is supplied to docopt.
+        """
+
+        args = {
+            'wipe': True,
+            '<name>': 'foo',
+        }
+
+        self.docopt.return_value = args
+        run()
+
+        mock_wipe.assert_called_with(name='foo')
