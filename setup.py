@@ -27,6 +27,9 @@ import twix
 def read(fname):
     return open(fname).read()
 
+#
+# Install Dependencies
+#
 
 install_requires = [
     'six==1.3.0',
@@ -41,25 +44,25 @@ if INSTALL_YAML:
         'PyYAML',
     ]
 
-# For readthedocs.org we need sphinx-bootstrap-theme
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
-if on_rtd:
-    install_requires = install_requires + [
-        'sphinx-bootstrap-theme',
-    ]
+#
+# Test Dependencies
+#
 
 test_requires = [
     'mock==1.0.1',
     'tox==1.4.3',
     'nose==1.3',
     'coverage==3.6',
-    'coveralls == 0.2',
+    'coveralls==0.2',
 ]
-
 if IS_PY26:
     test_requires = test_requires + [
-        'unittest2',
+        'unittest2==0.5.1',
     ]
+
+#
+# Development Dependencies
+#
 
 dev_requires = test_requires + [
     'pdbpp==0.7',
